@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="~/favicon.ico" type="image/ico"/>
+
+    <title>SahuarOS </title>
+
+    <!-- Bootstrap -->
+    <link href="~/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="~/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="~/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+
+    <!-- Custom Theme Style -->
+    <link href="~/css/site.css" rel="stylesheet">
+
+    @if (IsSectionDefined("Styles"))
+    {
+        @RenderSection("Styles", required: false)
+    }
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            @Html.Partial("_SideBar")
+        </div>
+        <div class="top_nav">
+            @Html.Partial("_TopNav")
+        </div>
+        <div class="right_col" role="main">
+            @RenderBody()
+        </div>
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2019 - SahuarOS - <a href="https://github.com/fmbosox/sahuarOS_hackaton2019">Hackatón</a>
+            </div>
+        </footer>
+    </div>
+</div>
+<script src="~/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="~/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="~/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="~/vendors/nprogress/nprogress.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="~/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="~/vendors/iCheck/icheck.min.js"></script>
+<!-- moment.js -->
+<script src="~/vendors/moment/min/moment.min.js"></script>
+<script src="~/vendors/moment/locale/es.js"></script>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+@RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,115 @@
+@{
+    ViewData["Title"] = "Order";
+}
+
+
+<ANY ng-app="productionApp"
+     ng-controller="ProductionController as vm">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Orden #{{vm.order.id}}</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+                     <div class="x_panel">
+                    <div class="x_content">
+                        <div class="row">
+                            <div ng-repeat="product in vm.order.products"
+                                 class="col-md-4  col-xs-12 profile_details">
+                                <div class="well profile_view">
+                                    <div class="col-sm-12">
+                                        <h4 class="brief">
+                                            <i>{{product.sku}}</i>
+                                            <button style="float: right !important;"
+                                                    class="btn {{product.status.color}} btn-xs">
+                                                {{product.status.name}}
+                                            </button>
+
+                                        </h4>
+                                        <div class="left col-xs-7">
+                                            <h5>{{product.name}}</h5>
+                                            <p>
+                                                <strong>Descripción: </strong>
+                                                {{product.description}}
+                                                <br>
+                                                <strong>Cantidad: </strong>
+                                                {{product.amount}}
+                                            </p>
+
+                                        </div>
+                                        <div class="right col-xs-5 text-center">
+                                            <img src="{{product.image}}" alt="" class="img-circle img-responsive">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 bottom text-center">
+                                        <div class="col-xs-12 col-sm-6 emphasis">
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 emphasis">
+                                            <button ng-click="vm.download(product.id, product.name, $index)"
+                                                    type="button" class="btn btn-default btn-xs">
+                                                <i class="fa fa-download"></i>
+                                                Descargar
+                                            </button>
+                                            <button ng-click="vm.startProduct(product.id, product.name, $index)"
+                                                    type="button" class="btn btn-primary btn-xs">
+                                                <i class="fa fa-hdd-o"></i>
+                                                Empezar
+                                            </button>
+                                            <button
+                                                ng-click="vm.finishProduct(product.id, product.name, $index)"
+                                                type="button" class="btn btn-success btn-xs">
+                                                <i class="fa fa-check-square-o"> </i> Terminar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    </div>
+</ANY>
+
+@section styles{
+    <style>
+        
+        
+        
+        
+        
+        
+        
+        
+    </style>
+}
+
+@section scripts
+{
+    <script src="~/lib/angularjs/angular.min.js"></script>
+    <script src="~/js/app/production/production.module.js"></script>
+    <script src="~/js/app/orders/order.js"></script>
+    <script src="~/js/app/production/production.presenter.js"></script>
+    <script>
+        (function(angular) {
+            "use strict";
+            angular.module('productionApp')
+                .factory('ProductionContext',
+                    function() {
+                        var context = @Html.Raw(Json.Serialize(@ViewBag.context));
+                        return context;
+                    });
+        })(angular);
+
+        function downloadURI(uri, name) {
+            var link = document.createElement("a");
+            link.download = name;
+            link.href = uri;
+            link.click();
+        }
+
+        momnet = moment.locale('es');
+    </script>
+    <script src="~/js/app/production/production.controller.js"></script>
+}
