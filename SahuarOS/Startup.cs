@@ -29,8 +29,6 @@ namespace SahuarOS
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //10.211.55.3
-            //var connection = "Server=192.168.0.10;Database=sahuaros;user id=sa;password=tracert";
             var connection = "";
             services.AddDbContext<SahuarOSEFContext>
             (options => options
