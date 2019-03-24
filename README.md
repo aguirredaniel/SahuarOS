@@ -1,10 +1,13 @@
-# sahuarOS_hackaton2019
-Repo para el hackaton 2019
+# SahuarOS Hackathon 2019
 
-Equipo:
+Team:
 
 Jesus Eduardo Bonilla
+
 Eduardo Alfaro
+
 Fernando Alfaro
+
 Daniel Aguirre
+
 Felipe Montoya
